@@ -3,7 +3,8 @@ package com.rnd.madi.myclean.base.persentation.view
 import android.app.Activity
 import android.app.Fragment
 import android.os.Bundle
-
+import com.rnd.madi.myclean.MyCleanApp
+import com.rnd.madi.myclean.base.di.component.ApplicationComponent
 
 
 /**
@@ -13,7 +14,7 @@ abstract class BaseActivity: Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        applicationComponent().inject(this)
+        applicationComponent().inject(this)
     }
 
     protected fun addFragment(containerId: Int, fragment: Fragment) {
@@ -22,7 +23,7 @@ abstract class BaseActivity: Activity() {
         fragmentTransaction.commit()
     }
 
-//    protected fun applicationComponent(): ApplicationComponent {
-//        return MyCleanApp.appComponent
-//    }
+    protected fun applicationComponent(): ApplicationComponent {
+        return MyCleanApp.appComponent
+    }
 }

@@ -2,7 +2,7 @@ package com.rnd.madi.myclean.base.di.module
 
 import android.app.Application
 import android.content.Context
-import com.rnd.madi.myclean.base.data.JobExecutor
+import com.rnd.madi.myclean.base.jobExecutor.JobExecutor
 import com.rnd.madi.myclean.base.domain.executor.PostExecutionThread
 import com.rnd.madi.myclean.base.domain.executor.ThreadExecutor
 import com.rnd.madi.myclean.base.persentation.executor.UiThread

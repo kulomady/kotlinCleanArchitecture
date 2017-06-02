@@ -1,4 +1,4 @@
-package com.rnd.madi.myclean.base.data
+package com.rnd.madi.myclean.base.jobExecutor
 
 import com.rnd.madi.myclean.base.domain.executor.ThreadExecutor
 import java.util.concurrent.*
