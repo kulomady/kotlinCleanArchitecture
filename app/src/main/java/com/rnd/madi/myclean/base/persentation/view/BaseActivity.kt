@@ -4,7 +4,7 @@ import android.app.Activity
 import android.app.Fragment
 import android.os.Bundle
 import com.rnd.madi.myclean.MyCleanApp
-import com.rnd.madi.myclean.base.di.component.ApplicationComponent
+import com.rnd.madi.myclean.base.di.module.ActivityModule
 
 
 /**
@@ -23,7 +23,8 @@ abstract class BaseActivity: Activity() {
         fragmentTransaction.commit()
     }
 
-    protected fun applicationComponent(): ApplicationComponent {
-        return MyCleanApp.appComponent
-    }
+    protected fun applicationComponent()= MyCleanApp.appComponent
+
+    protected fun activityModule() = ActivityModule(this)
+
 }

@@ -1,4 +1,4 @@
-package com.rnd.madi.myclean.injection.scope
+package com.rnd.madi.myclean.base.di.scope
 
 import javax.inject.Scope
 

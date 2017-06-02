@@ -1,6 +1,6 @@
 package com.rnd.madi.myclean.data.users.network.entity
 
-import com.rnd.madi.myclean.injection.scope.PerActivity
+import com.rnd.madi.myclean.base.di.scope.PerActivity
 import com.rnd.madi.myclean.features.users.domain.model.User
 import javax.inject.Inject
 
