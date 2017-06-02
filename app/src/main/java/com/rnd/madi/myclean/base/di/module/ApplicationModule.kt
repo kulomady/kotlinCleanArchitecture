@@ -15,29 +15,28 @@ import javax.inject.Singleton
  */
 
 @Module
-class ApplicationModule(private val application: Application){
+class ApplicationModule(private val mApplication: Application){
 
     @Provides
     @Singleton
-    internal fun provideApplication(): Application {
-        return application
+    fun provideApplicationContext(): Context {
+        return mApplication.applicationContext
     }
 
     @Provides
     @Singleton
-    internal fun provideApplicationContext(): Context {
-        return application
+    fun provideApplication(): Application {
+        return mApplication
     }
-
     @Provides
     @Singleton
-    internal fun provideThreadExecutor(): ThreadExecutor {
+    fun provideThreadExecutor(): ThreadExecutor {
         return JobExecutor()
     }
 
     @Provides
     @Singleton
-    internal fun providePostExecutionThread(uiThread: UiThread): PostExecutionThread {
-        return uiThread
+    fun providePostExecutionThread(): PostExecutionThread {
+        return UiThread()
     }
 }

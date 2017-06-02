@@ -23,14 +23,14 @@ import javax.inject.Singleton
 class NetworkModule(private val baseUrl: String){
     @Provides
     @Singleton
-    internal fun provideCache(application: Application): Cache {
+    fun provideCache(application: Application): Cache {
         val cacheSize = 10 * 1024 * 1024 // 10 Mb
         return Cache(application.cacheDir, cacheSize.toLong())
     }
 
     @Provides
     @Singleton
-    internal fun provideGson(): Gson {
+    fun provideGson(): Gson {
         return GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create()
@@ -38,7 +38,7 @@ class NetworkModule(private val baseUrl: String){
 
     @Provides
     @Singleton
-    internal fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = if (BuildConfig.DEBUG) {
             HttpLoggingInterceptor.Level.BODY
@@ -50,7 +50,7 @@ class NetworkModule(private val baseUrl: String){
 
     @Provides
     @Singleton
-    internal fun provideHttpClient(cache: Cache, interceptor: HttpLoggingInterceptor): OkHttpClient {
+    fun provideHttpClient(cache: Cache, interceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
                 .addInterceptor(interceptor)
                 .cache(cache)
@@ -59,7 +59,7 @@ class NetworkModule(private val baseUrl: String){
 
     @Provides
     @Singleton
-    internal fun provideRetrofit(gson: Gson, client: OkHttpClient): Retrofit {
+    fun provideRetrofit(gson: Gson, client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(client)
