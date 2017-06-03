@@ -11,8 +11,8 @@ import com.google.gson.annotations.SerializedName
 data class UserListEntity(
         @SerializedName("total_count")
         @Expose
-        private val totalCount: Int?,
+        val totalCount: Int?,
         @SerializedName("items")
         @Expose
-        private val items :ArrayList<UserEntity> = ArrayList<UserEntity>()
+        val items :ArrayList<UserEntity> = ArrayList<UserEntity>()
 )

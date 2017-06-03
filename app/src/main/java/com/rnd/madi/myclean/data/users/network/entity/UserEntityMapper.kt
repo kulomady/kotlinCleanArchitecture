@@ -15,6 +15,8 @@ class UserEntityMapper @Inject constructor() {
     fun transform(userEntity: UserEntity?)
             = User(userEntity?.name as String, userEntity.photoUrls as String)
 
-    fun transform(userEntityCollection: Collection<UserEntity>)
-            = userEntityCollection.mapTo(ArrayList<User>(20)) { transform(it) }
+    fun transform(userEntityCollection: UserListEntity?): ArrayList<User>? {
+        return userEntityCollection?.items?.mapTo(ArrayList<User>()) { transform(it)}
+
+    }
 }

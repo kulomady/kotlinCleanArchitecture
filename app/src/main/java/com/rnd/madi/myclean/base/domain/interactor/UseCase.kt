@@ -18,13 +18,13 @@ abstract class UseCase<T, Params> internal constructor(
 
     private val disposables = CompositeDisposable()
 
-    internal abstract fun buildUsecaseObservable(params: Params?): Observable<T>
+    protected abstract fun buildUsecaseObservable(params: Params?): Observable<T>
 
     open fun execute(observer: DisposableObserver<T>, params: Params?) {
         val observable = buildUsecaseObservable(params)
-                .subscribeOn(Schedulers.from { threadExecutor })
+                .subscribeOn(Schedulers.from(threadExecutor))
                 .observeOn(postExecutionThread.scheduler)
-        addDisposebles(observable.subscribeWith(observer))
+        addDisposable(observable.subscribeWith(observer))
     }
 
     fun dispose() {
@@ -33,7 +33,7 @@ abstract class UseCase<T, Params> internal constructor(
         }
     }
 
-    private fun addDisposebles(disposable: Disposable) {
+    private fun addDisposable(disposable: Disposable) {
        disposables.add(disposable)
     }
 

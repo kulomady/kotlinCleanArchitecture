@@ -9,7 +9,7 @@ import com.rnd.madi.myclean.base.persentation.view.CleanView
 
 open class BasePresenter<V: CleanView>(vararg useCases: UseCase<*,*> ) : CleanPresenter<V> {
 
-    private var view: CleanView ? = null
+    private var view: V ? = null
     private val useCasesList: List<UseCase<*, *>> = ArrayList()
 
     init {
@@ -29,12 +29,12 @@ open class BasePresenter<V: CleanView>(vararg useCases: UseCase<*,*> ) : CleanPr
         }
     }
 
-    protected fun getView(): CleanView {
+    protected fun getView(): V {
         if (view == null) {
             throw RuntimeException("Please call BasePresenter.attachView(CleanView) before " +
                     "requesting data to the presenter")
         } else {
-            return view as CleanView
+            return view as V
         }
     }
 }

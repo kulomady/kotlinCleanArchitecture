@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.rnd.madi.myclean.R
 import com.rnd.madi.myclean.base.persentation.view.BaseFragment
 import com.rnd.madi.myclean.injection.UserComponent
+import kotlinx.android.synthetic.main.fragment_users.*
 import javax.inject.Inject
 
 
@@ -15,6 +16,7 @@ import javax.inject.Inject
  * @author madi on 6/3/17.
  */
 class UsersFragment : BaseFragment(),UsersContract.View {
+
 
     @Inject
     lateinit var mPresenter: UsersPresenter
@@ -26,13 +28,14 @@ class UsersFragment : BaseFragment(),UsersContract.View {
 
     override fun onCreateView(inflater: LayoutInflater?,
                               container: ViewGroup?, savedInstanceState: Bundle?): View {
+
         return inflater?.inflate(R.layout.fragment_users,container,false) as View
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mPresenter.attachView(this)
-        mPresenter.requestUserList("test")
+        mPresenter.requestUserList()
     }
 
     override fun onPause() {
@@ -48,16 +51,21 @@ class UsersFragment : BaseFragment(),UsersContract.View {
     }
 
     override fun showProgress() {
-        TODO("not implemented")
+        text_view_error_msg.visibility = View.GONE
+        progress_bar.visibility = View.VISIBLE
+
     }
 
     override fun hideProgress() {
-        TODO("not implemented")
+        text_view_error_msg.visibility = View.GONE
+        progress_bar.visibility = View.GONE
     }
 
-    override fun getTerm() {
-        TODO("not implemented")
-    }
+    override fun getTerm() = "kulomady"
 
+
+    override fun showError(message: String) {
+        showToastMessage(message)
+    }
 
 }

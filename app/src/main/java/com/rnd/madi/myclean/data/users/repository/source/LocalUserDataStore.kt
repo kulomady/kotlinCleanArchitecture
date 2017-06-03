@@ -1,8 +1,9 @@
 package com.rnd.madi.myclean.data.users.repository.source
 
 import com.rnd.madi.myclean.data.users.cache.UserCache
-import com.rnd.madi.myclean.data.users.network.entity.UserEntity
 import com.rnd.madi.myclean.data.users.network.UserService
+import com.rnd.madi.myclean.data.users.network.entity.UserEntity
+import com.rnd.madi.myclean.data.users.network.entity.UserListEntity
 import io.reactivex.Observable
 import javax.inject.Inject
 
@@ -13,7 +14,7 @@ import javax.inject.Inject
 class LocalUserDataStore @Inject constructor(private val userService: UserService,
                                              private val userCache: UserCache) : UserDataSource {
 
-    override fun userEntityList(searchTerm: String): Observable<List<UserEntity>> {
+    override fun userEntityList(searchTerm: String): Observable<UserListEntity> {
         TODO("not implemented")
     }
 

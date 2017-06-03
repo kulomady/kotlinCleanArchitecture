@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName
 data class UserEntity(
         @SerializedName("id")
         val id: Long,
-        @SerializedName("name")
+        @SerializedName("login")
         val name: String?,
         @SerializedName("avatar_url")
         @Expose

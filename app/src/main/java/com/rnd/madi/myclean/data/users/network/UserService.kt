@@ -1,6 +1,7 @@
 package com.rnd.madi.myclean.data.users.network
 
 import com.rnd.madi.myclean.data.users.network.entity.UserEntity
+import com.rnd.madi.myclean.data.users.network.entity.UserListEntity
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -13,7 +14,7 @@ import retrofit2.http.Query
 
 interface UserService {
     @GET("/search/users?per_page=2")
-    fun searchGithubUsers(@Query("q") searchTerm: String): Observable<List<UserEntity>>
+    fun searchGithubUsers(@Query("q") searchTerm: String): Observable<UserListEntity>
 
     @GET("/users/{username}")
     fun getUser(@Path("username") username: String): Observable<UserEntity>

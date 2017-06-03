@@ -1,6 +1,7 @@
 package com.rnd.madi.myclean.data.users.repository.source
 
 import com.rnd.madi.myclean.data.users.network.entity.UserEntity
+import com.rnd.madi.myclean.data.users.network.entity.UserListEntity
 import io.reactivex.Observable
 
 /**
@@ -9,7 +10,7 @@ import io.reactivex.Observable
 
 interface UserDataSource {
 
-    fun userEntityList(searchTerm: String) : Observable<List<UserEntity>>
+    fun userEntityList(searchTerm: String) : Observable<UserListEntity>
 
     fun userEntitiesById(username: String): Observable<UserEntity>
 }

@@ -14,11 +14,13 @@ interface UsersContract {
 
         fun hideProgress()
 
-        fun getTerm()
+        fun getTerm():String
+
+        fun showError(message: String)
     }
 
     interface Presenter : CleanPresenter<View> {
 
-        fun requestUserList(query:String)
+        fun requestUserList()
     }
 }
