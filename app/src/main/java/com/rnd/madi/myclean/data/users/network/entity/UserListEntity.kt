@@ -12,9 +12,6 @@ data class UserListEntity(
         @SerializedName("total_count")
         @Expose
         private val totalCount: Int?,
-        @SerializedName("incomplete_results")
-        @Expose
-        private val incompleteResults: Boolean = false,
         @SerializedName("items")
         @Expose
         private val items :ArrayList<UserEntity> = ArrayList<UserEntity>()

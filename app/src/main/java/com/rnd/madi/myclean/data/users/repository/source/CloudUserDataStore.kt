@@ -2,8 +2,8 @@ package com.rnd.madi.myclean.data.users.repository.source
 
 import android.util.Log
 import com.rnd.madi.myclean.data.users.cache.UserCache
-import com.rnd.madi.myclean.data.users.network.entity.UserEntity
 import com.rnd.madi.myclean.data.users.network.UserService
+import com.rnd.madi.myclean.data.users.network.entity.UserEntity
 import io.reactivex.Observable
 import javax.inject.Inject
 
@@ -14,8 +14,10 @@ import javax.inject.Inject
 class CloudUserDataStore @Inject constructor(
         private val userService: UserService, private val userCache: UserCache) : UserDataSource {
 
-    override fun userEntityList(searchTerm: String): Observable<List<UserEntity>>
-            = userService.searchGithubUsers(searchTerm)
+    override fun userEntityList(searchTerm: String): Observable<List<UserEntity>>{
+        return userService.searchGithubUsers(searchTerm)
+    }
+
 
     override fun userEntitiesById(username: String): Observable<UserEntity> {
         return userService.getUser(username).doOnNext {result-> saveTocache(result) }

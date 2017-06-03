@@ -15,7 +15,7 @@ data class UserEntity(
         @SerializedName("avatar_url")
         @Expose
         val photoUrls: String?,
-        @SerializedName("repos_url")
+        @SerializedName("public_repos")
         @Expose
-        val reposUrl: String?
+        val reposUrl: Int?
 )

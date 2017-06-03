@@ -8,7 +8,7 @@ interface Constants {
 
     interface API {
         companion object {
-           val BASE_URL = "https://google.com"
+           val BASE_URL = "https://api.github.com"
         }
     }
 }
