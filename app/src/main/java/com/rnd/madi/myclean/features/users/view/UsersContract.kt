@@ -19,6 +19,6 @@ interface UsersContract {
 
     interface Presenter : CleanPresenter<View> {
 
-        fun requestUserList()
+        fun requestUserList(query:String)
     }
 }

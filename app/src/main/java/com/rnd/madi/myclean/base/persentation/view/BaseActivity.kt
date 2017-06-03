@@ -1,8 +1,8 @@
 package com.rnd.madi.myclean.base.persentation.view
 
-import android.app.Activity
 import android.app.Fragment
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.rnd.madi.myclean.MyCleanApp
 import com.rnd.madi.myclean.base.di.module.ActivityModule
 
@@ -10,7 +10,7 @@ import com.rnd.madi.myclean.base.di.module.ActivityModule
 /**
  * @author madi on 6/1/17.
  */
-abstract class BaseActivity: Activity() {
+abstract class BaseActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

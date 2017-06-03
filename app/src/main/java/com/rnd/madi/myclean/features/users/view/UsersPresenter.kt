@@ -15,7 +15,7 @@ class UsersPresenter @Inject constructor(getUsersUsecase: GetUsersUsecase)
 
     private val TAG = "UsersPresenter"
 
-    override fun requestUserList() {
+    override fun requestUserList(query:String) {
         Log.d(TAG, "request list")
     }
 

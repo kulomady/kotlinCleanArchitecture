@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">MyClean</string>
+    <string name="app_name">Kotlin Apps</string>
+    <string name="search_for_some_users">Search some user</string>
+    <string name="no_data_loaded">No Data Loaded</string>
+
+    <string name="search_icon_title">Search</string>
 </resources>

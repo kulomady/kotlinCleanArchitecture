@@ -9,6 +9,8 @@ import com.rnd.madi.myclean.base.persentation.view.BaseFragment
 import com.rnd.madi.myclean.injection.UserComponent
 import javax.inject.Inject
 
+
+
 /**
  * @author madi on 6/3/17.
  */
@@ -30,7 +32,7 @@ class UsersFragment : BaseFragment(),UsersContract.View {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mPresenter.attachView(this)
-        mPresenter.requestUserList()
+        mPresenter.requestUserList("test")
     }
 
     override fun onPause() {
@@ -56,4 +58,6 @@ class UsersFragment : BaseFragment(),UsersContract.View {
     override fun getTerm() {
         TODO("not implemented")
     }
+
+
 }
